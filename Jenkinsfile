@@ -1,20 +1,29 @@
 pipeline {
     agent any
-
+    enviornment {
+        name = 'withscript'
+    }
     stages {
-        stage('Build') {
+        stage('checkout') {
             steps {
-                echo 'Building..'
+                checkout scm
             }
         }
-        stage('Test') {
+        stage('build') {
             steps {
-                echo 'blank ..'
+                sh 'docker build -t ${env.name} .'
             }
         }
-        stage('Deploy') {
+        stage('run') {
             steps {
-                echo 'Deploying.... '
+                sh 'docker run ${env.name}' >> results.txt
+            }
+        }
+        stage('check post') {
+            steps {
+                def output=readFile('result').trim()
+                echo "output=$output";
+
             }
         }
     }
