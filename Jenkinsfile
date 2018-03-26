@@ -1,7 +1,8 @@
 pipeline {
     agent any
-    enviornment {
-        name = 'withscript'
+    enviornment 
+    {
+        simplename = 'withscript'
     }
     stages {
         stage('checkout') {
@@ -11,19 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t ${env.name} .'
+                sh 'docker build -t ${env.simplename} .'
             }
         }
         stage('run') {
             steps {
-                sh 'docker run ${env.name}' >> results.txt
-            }
-        }
-        stage('check post') {
-            steps {
-                def output=readFile('result').trim()
-                echo "output=$output";
-
+                sh 'docker run ${env.simplename}' 
             }
         }
     }
