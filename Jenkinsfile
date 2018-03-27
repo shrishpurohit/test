@@ -23,8 +23,7 @@ pipeline {
         stage('run') {
             agent {
                 docker {
-                    image "'${env.SIMPLENAME}'"
-                    reuseNode true
+                    image 'withscript'
                 }
             }
             steps {
