@@ -12,12 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t ${env.SIMPLENAME} .'
+                sh "docker build -t ${env.SIMPLENAME} ."
             }
         }
         stage('run') {
             steps {
-                sh 'docker run ${env.SIMPLENAME}' 
+                sh "docker run ${env.SIMPLENAME}" 
             }
         }
     }
