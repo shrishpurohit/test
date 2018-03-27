@@ -21,8 +21,17 @@ pipeline {
             }
         }
         stage('run') {
+            agent {
+                docker {
+                    image "${env.SIMPLENAME}"
+                    reuseNode true
+                }
+            }
             steps {
-                sh "docker run ${env.SIMPLENAME}" 
+                script {
+                    sh "echo 'in IMAGE'"
+                    sh "python echo.py"
+                }
             }
         }
     }

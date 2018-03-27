@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 #RUN pip install --no-cache-dir -r requirements.txt
 #COPY . .
 
-CMD [ "python", "./echo.py" ]
+#CMD [ "python", "./echo.py" ]
