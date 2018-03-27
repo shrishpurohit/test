@@ -9,8 +9,8 @@ pipeline {
             steps {
                 //checkout scm
                 git url: 'git@github.com:shrishpurohit/test.git',
-                branch: 'master',
-                //credentialsId: 'gh-d--dbase'
+                    branch: 'master',
+                    credentialsId: 'gh-d--dbase'
                 sh "pwd"
                 sh "ls"
             }
