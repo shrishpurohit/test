@@ -7,7 +7,12 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout scm
+                //checkout scm
+                git url: 'git@github.com:shrishpurohit/test.git',
+                branch: 'master',
+                //credentialsId: 'gh-d--dbase'
+                sh "pwd"
+                sh "ls"
             }
         }
         stage('build') {
