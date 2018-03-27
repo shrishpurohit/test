@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment
     {
-        simplename = 'withscript'
+        SIMPLENAME = 'withscript'
     }
     stages {
         stage('checkout') {
@@ -12,12 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t ${env.simplename} .'
+                sh 'docker build -t ${env.SIMPLENAME} .'
             }
         }
         stage('run') {
             steps {
-                sh 'docker run ${env.simplename}' 
+                sh 'docker run ${env.SIMPLENAME}' 
             }
         }
     }
