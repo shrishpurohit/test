@@ -10,7 +10,7 @@ pipeline {
                 //checkout scm
                 git url: 'git@github.com:shrishpurohit/test.git',
                     branch: 'master',
-                    credentialsId: 'gh-d--dbase'
+                    credentialsId: '34649ee9-1c8d-483c-b304-45220fe49a6b'
                 sh "pwd"
                 sh "ls"
             }
