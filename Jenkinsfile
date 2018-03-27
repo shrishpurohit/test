@@ -23,7 +23,7 @@ pipeline {
         stage('run') {
             agent {
                 docker {
-                    image "${env.SIMPLENAME}"
+                    image "'${env.SIMPLENAME}'"
                     reuseNode true
                 }
             }
