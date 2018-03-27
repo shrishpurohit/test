@@ -23,7 +23,7 @@ pipeline {
         stage('run') {
             agent {
                 docker {
-                    image 'withscript'
+                    image SIMPLENAME
                 }
             }
             steps {
