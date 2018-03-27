@@ -26,7 +26,7 @@ pipeline {
         stage('run') {
             agent {
                 docker {
-                    image withscript
+                    image 'withscript'
                 }
             }
             steps {
