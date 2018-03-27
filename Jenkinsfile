@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    
     environment
     {
         SIMPLENAME = 'withscript'
     }
+
+
     stages {
         stage('checkout') {
             steps {
@@ -23,7 +26,7 @@ pipeline {
         stage('run') {
             agent {
                 docker {
-                    image SIMPLENAME
+                    image withscript
                 }
             }
             steps {
